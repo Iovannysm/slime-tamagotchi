@@ -1,0 +1,53 @@
+* {
+    border: 1px solid red;
+}
+
+body {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+}
+
+
+
+#game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#top-box {
+    height: 25vh;
+    width: 50%;
+}
+
+#game-name {
+    justify-content: center;
+    text-align: center ;
+}
+
+#sprite {
+    height: 150px;
+    width: 150px;
+    background-color: rgb(41, 129, 129);
+}
+
+#bottom-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 25vh;
+    width: 50%;
+}
+
+#text-input {
+    align-items: center;
+    
+}
+
+#start-btn {
+    align-items: center;
+    width: 100px;
+    margin: 0;
+
+}
