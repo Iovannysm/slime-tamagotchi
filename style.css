@@ -4,16 +4,23 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
     padding: 0;
     margin: 0;
 
 }
 
 
+
+
 #game-area {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
+    width: 350px;
+    border-radius: 10px;
     
 }
 
@@ -21,31 +28,36 @@ body {
     display: flex;
     flex-direction: column;
     height: 25vh;
-    width: 50%;
+    width: 100%;
+  
+    
 }
-.timer {
+#timer {
+    align-self: center;
     padding: 0;
     margin: 0;
-    flex-direction: row;
-    height: 25px;
-    width: 25px;
+    width: 100px;
 }
+
 #container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 #game-name {
     justify-content: center;
     text-align: center ;
+    padding: 0;
 }
 
 #slime {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 100%;
+    
 }
+
 #sprite {
     height: 150px;
     width: 150px;
@@ -54,13 +66,15 @@ body {
 
 #bottom-box {
     height: 25%;
-    width: 50%;
+    width: 100%;
+    border-color: black;
 }
 
 #bottom-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding-bottom: 80px ;
 }
 
 .nes-input {
@@ -69,8 +83,13 @@ body {
 }
 
 .nes-btn {
-    
     width: 50px;
     margin: 0;
+}
+
+.life {
+    width: 50px;
+    height: 50px;
+    text-align: center;
 
 }

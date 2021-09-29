@@ -23,33 +23,52 @@ const tamagotchi = {
     // buttonH: $("#hunger"),
     // buttonB: $("#bored"), 
 
-}
 
+    start(event){
+        console.log("=== Game Started ===")
+        this.startTimer();
 
+    },
 
-const timer = 0;
+    timer: null,
+  startTimer() {
+    this.timer = setInterval(this.reduceTime.bind(tamagotchi), 1000);
+  },
 
-const startTimer = function startTimer(){
-    setInterval(reduceTime.bind(tamagotchi), 1000)
-} 
+  reduceTime() {
+    this.time--;
 
-const reduceTime = function reduceTime(){
-    const time = tamagotchi.time--;
-    $("#timer").text(time);
+    $("#timer").text(tamagotchi.time);
     
+  },
+
+
+  click() {
+    const $button = $(".nes-btn");
+    this.hunger++;
+
+
+
+      console.log("I have been click")
+  }
+
+
+
 
 }
 
 
 
-const $button = $(".nes-btn").click(function() {
-
-    const addPoint = tamagotchi.hunger++;
-    $("#hunger").text(addPoint);
+$("#hunger").on("click", tamagotchi.click(tamagotchi));
 
 
-    console.log("You clicked")
-});
+
+// const $button = $(".nes-btn").click(function() {
+
+//     const addPoint = tamagotchi.hunger++;
+//     $(".h").text(addPoint);  
+//     console.log("You clicked")
+// });
 
 
 
