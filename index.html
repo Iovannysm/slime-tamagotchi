@@ -16,17 +16,29 @@
 </head>
 <body>
 
-    <section id="game-area">
-        <section id="top-box">
-            <h1 id="game-name">Slime</h1>
+    <section id="game-area" class="nes-container">
+        <section id="top-box" class="nes-container with-title is-centered">
+            <h1 id="game-name" class="nes-container with-title is-centered">Slime</h1>
+            <h1 id="timer">0</h1>
+            <section id="container">
+                <h1 class="life h">0</h1>
+                <h1 class="life s">0</h1>
+                <h1 class="life b">0</h1>
+            </section>
         </section>
+           
         <main id="slime"> 
             <div id="sprite"></div>
         </main>
         <section id="bottom-box">
-            <input id="text-input" type="text">
+                 <!-- <input type="text" id="name_field" class="nes-input"> -->
             <br>
-            <button id="start-btn">Start</button>
+            <section id="bottom-container">
+                <a class="nes-btn" id="hunger" href="#">H</a>
+                <a class="nes-btn" id="sleepy" href="#">S</a>
+                <a class="nes-btn" id="bored" href="#">B</a>
+            </section>
+            
         </section>
     </section>
     
