@@ -14,7 +14,7 @@ console.log("Tamagotchi Loaded");
 
 const tamagotchi = {
     round: 1,
-    time: 2,
+    time: 30,
 
     // button: $("button")
     hunger: 5,
