@@ -44,11 +44,8 @@ const tamagotchi = {
 
 
   click() {
-    const $button = $(".nes-btn");
-    this.hunger++;
-
-
-
+    const $addPoint = this.hunger++;
+    $(".life").text($addPoint);
       console.log("I have been click")
   }
 
