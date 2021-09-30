@@ -8,7 +8,7 @@ console.log("Tamagotchi Loaded");
 // add event listener for buttons -> on click (log for now ) - done
 // add the logic to add/subtract points - done
 // add logic for the timer -> reduce the time by 1 every second - done
-// add logic to check if time hits zero end a round
+// add logic to check if time hits zero end a round --done
 // add game over logic by checking if round is equal to four.
 
 
@@ -18,7 +18,7 @@ const tamagotchi = {
     hunger: 5,
     sleepy: 5,
     bored: 5,
-    // button: $("button")
+    button: $("start-button"),
    
 
   /* === Starts the game === */
@@ -150,10 +150,12 @@ const tamagotchi = {
 
 };
 
-// tamagotchi.button.click(tamagotchi.start.bind(tamagotchi));
+/* This event listener start the game */
+
+tamagotchi.button.click(tamagotchi.start.bind(tamagotchi));
 
 
-
+// This events listener calls on the click methods inside the tamagotchi object.
 
 $("#hunger").on("click", tamagotchi.clickedH.bind(tamagotchi));
 $("#sleepy").on("click", tamagotchi.clickedS.bind(tamagotchi));

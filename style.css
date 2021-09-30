@@ -93,3 +93,17 @@ body {
     text-align: center;
 
 }
+
+#modal {
+    width: 600px;
+    height: 800px;
+    position: absolute;
+    z-index: 10;
+    background-color: whitesmoke;
+    display: grid;
+    place-items: center;
+}
+
+#start-button {
+    width: 100px;
+}
