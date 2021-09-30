@@ -17,9 +17,9 @@ const tamagotchi = {
     round: 1,
     time: 2,
 
-    buttons: ["hunger", "tired", "bored"]
+    buttons: ["hunger", "tired", "bored"],
     hunger: 5,
-    tired: 5,
+    sleepy: 5,
     bored: 5,
     // buttonS: $("#sleepy"),
     // buttonH: $("#hunger"),
@@ -29,6 +29,9 @@ const tamagotchi = {
     start(event){
         console.log("=== Game Started ===")
         this.startTimer();
+        this.reducePointB();
+        this.reducePointH();
+        this.reducePointS();
 
     },
         /*=== Timer of the game ===  */
@@ -44,24 +47,69 @@ const tamagotchi = {
   },
 /* === Button handler === */
 //This method gives points to the elements.
-  clicked() {
+
+  //This method is for hunger
+  clickedH() {
     const $addPoint = this.hunger++;
-    $(".life").text($addPoint);
+    $(".h").text($addPoint);
+      console.log("I have been click")
+  },
+
+  //This method is for sleepy
+  clickedS() {
+    const $addPoint = this.sleepy++;
+    $(".s").text($addPoint);
+      console.log("I have been click")
+  },
+
+  //This is for bored
+  clickedB() {
+    const $addPoint = this.bored++;
+    $(".b").text($addPoint);
       console.log("I have been click")
   },
 
   /* === Point system handler === */
 
-  point: null,
-  subtractPoints() {
-    this.point = setInterval(this.reducePoint.bind(tamagotchi), 1500);
+
+    // I take points from hunger. 
+  pointH: null,
+  subtractPointsH() {
+    this.pointH = setInterval(this.reducePointH.bind(tamagotchi), 1500);
     console.log("I take points");
 
   },
 
-  reducePoint(){
+  reducePointH(){
     this.hunger--;
-    $(".life").text(tamagotchi.hunger);
+    $(".h").text(tamagotchi.hunger);
+
+  },
+
+  //I take points from sleepy
+  pointS: null,
+  subtractPointsS() {
+    this.pointS = setInterval(this.reducePointS.bind(tamagotchi), 1500);
+    console.log("I take points");
+
+  },
+
+  reducePointS(){
+    this.sleepy--;
+    $(".s").text(tamagotchi.sleepy);
+
+  },
+  //I take points from Bored
+  pointB: null,
+  subtractPointsB() {
+    this.pointB = setInterval(this.reducePointB.bind(tamagotchi), 1500);
+    console.log("I take points");
+
+  },
+
+  reducePointB(){
+    this.bored--;
+    $(".b").text(tamagotchi.bored);
 
   },
 
@@ -74,9 +122,9 @@ const tamagotchi = {
 
 
 
-$("#hunger").on("click", tamagotchi.clicked.bind(tamagotchi));
-
-
+$("#hunger").on("click", tamagotchi.clickedH.bind(tamagotchi));
+$("#sleepy").on("click", tamagotchi.clickedS.bind(tamagotchi));
+$("#bored").on("click", tamagotchi.clickedB.bind(tamagotchi));
 
 // const $button = $(".nes-btn").click(function() {
 
