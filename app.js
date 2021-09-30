@@ -16,6 +16,8 @@ console.log("Tamagotchi Loaded");
 const tamagotchi = {
     round: 1,
     time: 2,
+
+    buttons: ["hunger", "tired", "bored"]
     hunger: 5,
     tired: 5,
     bored: 5,
@@ -29,7 +31,7 @@ const tamagotchi = {
         this.startTimer();
 
     },
-
+        /*=== Timer of the game ===  */
     timer: null,
   startTimer() {
     this.timer = setInterval(this.reduceTime.bind(tamagotchi), 1000);
@@ -37,17 +39,33 @@ const tamagotchi = {
 
   reduceTime() {
     this.time--;
-
     $("#timer").text(tamagotchi.time);
     
   },
-
-
-  click() {
+/* === Button handler === */
+//This method gives points to the elements.
+  clicked() {
     const $addPoint = this.hunger++;
     $(".life").text($addPoint);
       console.log("I have been click")
-  }
+  },
+
+  /* === Point system handler === */
+
+  point: null,
+  subtractPoints() {
+    this.point = setInterval(this.reducePoint.bind(tamagotchi), 1500);
+    console.log("I take points");
+
+  },
+
+  reducePoint(){
+    this.hunger--;
+    $(".life").text(tamagotchi.hunger);
+
+  },
+
+
 
 
 
@@ -56,7 +74,7 @@ const tamagotchi = {
 
 
 
-$("#hunger").on("click", tamagotchi.click(tamagotchi));
+$("#hunger").on("click", tamagotchi.clicked.bind(tamagotchi));
 
 
 
