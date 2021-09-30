@@ -14,13 +14,11 @@ console.log("Tamagotchi Loaded");
 
 const tamagotchi = {
     round: 1,
-    time: 30,
-
-    // button: $("button")
+    time: 2,
     hunger: 5,
     sleepy: 5,
     bored: 5,
-    // buttonS: $("#sleepy"),
+    // button: $("button")
    
 
   /* === Starts the game === */
@@ -40,12 +38,13 @@ const tamagotchi = {
         this.hunger = 5;
         this.sleepy = 5;
         this.bored = 5;
-        $(".h, .s, .b").text("0");
-        $("#timer").text("0");
+        $(".h, .s, .b").text("5");
+        $("#timer").text("30");
         clearInterval(this.timer);
         clearInterval(this.pointB);
         clearInterval(this.pointH);
         clearInterval(this.pointS);
+        this.setUpRound();
     },
 
 
@@ -62,6 +61,7 @@ const tamagotchi = {
     if (this.time <= 0) {
         this.round++;
         this.setUpRound();
+        console.log(this);
     }
     
   },
@@ -135,14 +135,14 @@ const tamagotchi = {
 
   /* === This method sets up the round=== */
   setUpRound(){
-    if(this.hunger || this.sleepy || this.bored <= 0 ) {
-        clearInterval(timer);
+    if(this.hunger <= 0 || this.sleepy <= 0 || this.bored <= 0 ) {
+        clearInterval(this.timer);
         //render option of game over try again button.
     }else if (this.round >= 4) { 
-        clearInterval(timer);
+        clearInterval(this.timer);
         // render option of game over  message: Your slime started to hibernate 
     } else {
-        tamagotchi.time = Math.floor(30 / tamagotchi.round) + 10;
+        this.time = Math.floor(30 / this.round) + 10;
     }
   },
 
@@ -150,6 +150,7 @@ const tamagotchi = {
 
 };
 
+// tamagotchi.button.click(tamagotchi.start.bind(tamagotchi));
 
 
 
