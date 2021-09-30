@@ -18,12 +18,13 @@ const tamagotchi = {
     hunger: 5,
     sleepy: 5,
     bored: 5,
-    button: $("start-button"),
+    button: $("#start-button"),
    
 
   /* === Starts the game === */
     start(event){
         console.log("=== Game Started ===")
+        this.hideStartWindow();
         this.resetGame();
         this.startTimer();
         this.reducePointB();
@@ -45,6 +46,11 @@ const tamagotchi = {
         clearInterval(this.pointH);
         clearInterval(this.pointS);
         this.setUpRound();
+    },
+
+
+    hideStartWindow() {
+        $("#modal").hide();
     },
 
 
