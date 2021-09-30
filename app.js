@@ -9,31 +9,47 @@ console.log("Tamagotchi Loaded");
 // add the logic to add/subtract points - done
 // add logic for the timer -> reduce the time by 1 every second - done
 // add logic to check if time hits zero end a round
-// when we are switching rounds add logic to increase number of squares, reset time with lower value, and increment round number
-// add game over logic by checking if round is equal to four, show game over in banner
+// add game over logic by checking if round is equal to four.
 
 
 const tamagotchi = {
     round: 1,
     time: 2,
 
-    buttons: ["hunger", "tired", "bored"],
+    // button: $("button")
     hunger: 5,
     sleepy: 5,
     bored: 5,
     // buttonS: $("#sleepy"),
-    // buttonH: $("#hunger"),
-    // buttonB: $("#bored"), 
+   
 
-
+  /* === Starts the game === */
     start(event){
         console.log("=== Game Started ===")
+        this.resetGame();
         this.startTimer();
         this.reducePointB();
         this.reducePointH();
         this.reducePointS();
+        this.setUpRound();
 
+    },  
+    /* === This resets the game=== */
+    resetGame(){
+        this.round = 0;
+        this.hunger = 5;
+        this.sleepy = 5;
+        this.bored = 5;
+        $(".h, .s, .b").text("0");
+        $("#timer").text("0");
+        clearInterval(this.timer);
+        clearInterval(this.pointB);
+        clearInterval(this.pointH);
+        clearInterval(this.pointS);
     },
+
+
+
         /*=== Timer of the game ===  */
     timer: null,
   startTimer() {
@@ -43,6 +59,10 @@ const tamagotchi = {
   reduceTime() {
     this.time--;
     $("#timer").text(tamagotchi.time);
+    if (this.time <= 0) {
+        this.round++;
+        this.setUpRound();
+    }
     
   },
 /* === Button handler === */
@@ -113,12 +133,24 @@ const tamagotchi = {
 
   },
 
+  /* === This method sets up the round=== */
+  setUpRound(){
+    if(this.hunger || this.sleepy || this.bored <= 0 ) {
+        clearInterval(timer);
+        //render option of game over try again button.
+    }else if (this.round >= 4) { 
+        clearInterval(timer);
+        // render option of game over  message: Your slime started to hibernate 
+    } else {
+        tamagotchi.time = Math.floor(30 / tamagotchi.round) + 10;
+    }
+  },
 
 
 
+};
 
 
-}
 
 
 
