@@ -61,7 +61,7 @@ body {
 #sprite {
     height: 150px;
     width: 150px;
-    background-color: rgb(41, 129, 129);
+    /* background-color: rgb(41, 129, 129); */
 }
 
 #bottom-box {
@@ -124,4 +124,11 @@ body {
     justify-content: center;
     align-self: center;
 }
+
+
+#slime-gif {
+    height: 100%;
+    width: 100%;
+}
+
 
