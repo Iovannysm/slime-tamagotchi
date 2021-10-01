@@ -56,7 +56,7 @@ const tamagotchi = {
                     <p>${this.gameDone}</p>
                 </div>
                 <div class="try-container">
-                    <a class="nes-btn" id="try-again" href="#">Try Again</a>
+                    <a class="nes-btn" id="try-again" href="#">Hit Command R to play again.</a>
                 </div>
             </section>`
         );
