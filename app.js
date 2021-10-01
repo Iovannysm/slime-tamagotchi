@@ -31,6 +31,7 @@ const tamagotchi = {
         this.subtractPointsB();
         this.subtractPointsH();
         this.subtractPointsS();
+        this.inputText();
 
         
     },  
@@ -57,6 +58,10 @@ const tamagotchi = {
 
     gameOver(){
         
+    },
+
+    inputText() {
+        $("#game-name").text($("#name_field").val());
     },
 
 
@@ -176,13 +181,5 @@ tamagotchi.button.click(tamagotchi.start.bind(tamagotchi));
 $("#hunger").on("click", tamagotchi.clickedH.bind(tamagotchi));
 $("#sleepy").on("click", tamagotchi.clickedS.bind(tamagotchi));
 $("#bored").on("click", tamagotchi.clickedB.bind(tamagotchi));
-
-// const $button = $(".nes-btn").click(function() {
-
-//     const addPoint = tamagotchi.hunger++;
-//     $(".h").text(addPoint);  
-//     console.log("You clicked")
-// });
-
 
 
