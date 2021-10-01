@@ -1,17 +1,6 @@
 console.log("Tamagotchi Loaded");
 
 
-// create the layout of our web page in html - done
-// define some starting styles - done
-// create our game object with starting values - done
-// add event listener on the begin button that will trigger a game start (log start for now)
-// add event listener for buttons -> on click (log for now ) - done
-// add the logic to add/subtract points - done
-// add logic for the timer -> reduce the time by 1 every second - done
-// add logic to check if time hits zero end a round --done
-// add game over logic by checking if round is equal to four.
-
-
 const tamagotchi = {
     round: 1,
     time: 30,
@@ -19,6 +8,8 @@ const tamagotchi = {
     sleepy: 5,
     bored: 5,
     button: $("#start-button"),
+    tryAgain: $("#try-again"),
+    gameDone: `Your Slime Started To Hibernate!"`,
    
 
   /* === Starts the game === */
@@ -57,6 +48,18 @@ const tamagotchi = {
 
 
     gameOver(){
+        $("#game-area").empty();
+        $("#game-area").append(
+            `<section class="nes-container" id="game-over">
+                <div class="nes-container with-title is-centered">
+                    <p class="title">Game Over</p>
+                    <p>${this.gameDone}</p>
+                </div>
+                <div class="try-container">
+                    <a class="nes-btn" id="try-again" href="#">Try Again</a>
+                </div>
+            </section>`
+        );
         
     },
 
@@ -78,6 +81,7 @@ const tamagotchi = {
         clearInterval(this.pointB);
         clearInterval(this.pointH);
         clearInterval(this.pointS);
+        this.gameOver();
 
     }
     this.time--;
@@ -161,6 +165,7 @@ const tamagotchi = {
     
     if (this.round >= 4) { 
         clearInterval(tamagotchi.timer);
+        this.gameOver();
         // render option of game over  message: Your slime started to hibernate 
     } else {
         this.time = Math.floor(30 / this.round);
@@ -174,6 +179,7 @@ const tamagotchi = {
 /* This event listener start the game */
 
 tamagotchi.button.click(tamagotchi.start.bind(tamagotchi));
+tamagotchi.tryAgain.click(tamagotchi.start.bind(tamagotchi));
 
 
 // This events listener calls on the click methods inside the tamagotchi object.

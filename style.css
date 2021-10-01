@@ -107,3 +107,21 @@ body {
 #start-button {
     width: 100px;
 }
+
+#game-over {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#try-again {
+    width: 150px; 
+    align-self: center;   
+}
+
+#try-container {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
